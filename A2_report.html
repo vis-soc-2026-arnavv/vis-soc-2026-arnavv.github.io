@@ -13,7 +13,7 @@
 	<header>
 		<h1>
 			<small>Assignment 2</small>
-			Exploratory Data Analysis 1
+			Exploratory Data Analysis
 		</h1>
 
 		<p>
@@ -26,14 +26,27 @@
 
 			<h3>Overall Analysis Questions</h3>
 			Single-family zoning is a land-use rule that allows only one detached house per lot, meaning no duplexes,
-			apartment buildings, or other multi-unit housing can be built there. It is widely considered to be an
-			exclusionary practice which burdens low-income and minority communities, as mentioned in the background readings linked in the final report.
-			While these reports either focus on massachusetts as a whole or around specfic municipalities like Boston or Somerville, I am curious to see how single-family zoning is distributed across the state.
+			apartment buildings, or other multi-unit housing can be built there. It is widely
+			considered to be an exclusionary practice which burdens low-income and minority communities
+			(<a href="https://wapo.st/48huLqt" target="_blank">Washington Post: Houses are too expensive. Apartments are
+				too small. Is this a fix?</a>). While these reports either
+			focus on Massachusetts
+			(<a href="https://apps.bostonglobe.com/2023/10/special-projects/spotlight-boston-housing/beyond-the-gilded-gate/"
+				target="_blank"> Boston Globe Spotlight Report
+				into the Massachusetts housing crisis</a>) as
+			a whole or around specific municipalities like Somerville
+			(<a href="https://cityobservatory.org/the-illegal-city-of-somerville/" target="_blank">City Observatory: The
+				Illegal City of Somerville</a>), I am curious to see if there is nuance to the single-family zoning
+			policies across the state.
 			<ol>
-				<li>Which municipalities across Massachusetts have the most single-family zoning? </li>
-				<li>Who is being affected by these single-family zoning policies?</li>
-				<li>Are are municipalities who practice similar single-family zoning tactics end up with similar
-					results?
+				<li>How is single-family zoning distributed across Massachusett's municipalities?</li>
+				<li>Is there a relationship between single-family zoning share and demographic composition (age,
+					race/ethnicity, gender)?</li>
+				<li>How do single-family zoned areas differ from other housing zoned areas? </li>
+				<li>Which municipalities end up with the biggest differences between single-family zoned and other
+					housing zoned areas?
+				</li>
+				<li>Which municipalities end up with the biggest differences in household income, relative to their share of single-family zoning?
 				</li>
 			</ol>
 		</section>
@@ -161,24 +174,38 @@
 			<figure>
 				<img src="images/single_family_diff2.png" alt="" />
 				<figcaption>
-					ENTER IMAGE CAPTION HERE.
+					This shows a connected dot plot which shows the majority demographics (from left to right: male, age
+					18-24, and none-white hispanic) across municipalities with both single-family (red) and other zoning
+					areas (blue), sorted by the share of single-family zoning in the municipality, starting with lowest
+					percentage at the top).
+					<br />
+					Here, there are no clear trends between differences in single-family and other zoned areas. Note
+					that the female population in Quincy and Medford is the most affected by single-family zoning, while
+					interestingly, the male demographic is most affected in Weymouth. We also see that single-family
+					housing zones disproportionately affect 18–64-year-olds the most in Weymouth and Wellesley.
+					Additionally, we noted that racial minorities in Newton and Wellesley were the most affected, with
+					the non-Hispanic White population increasing from 60% to almost 90%.
+
 				</figcaption>
 			</figure>
 
-			<figure>
+			<!-- <figure>
 				<img src="images/household_size.png" alt="" />
 				<figcaption>
 					ENTER IMAGE CAPTION HERE.
 				</figcaption>
-			</figure>
+			</figure> -->
 
 			<figure>
 				<img src="images/household_income.png" alt="" />
 				<figcaption>
-					ENTER IMAGE CAPTION HERE.
+					This stacked bar chart shows the distribution of household income across multiple tiers (from under
+					$10k to over $200k), sorted by the percentage of single-family–zoned housing in each municipality.
+					Again, there is no direct correlation between the percentage of single-family zoning and the
+					municipality. We can see that Winthrop, Nahant, and Chelsea have lower household incomes across most
+					income tiers.
 				</figcaption>
-			</figure>2
-
+			</figure>
 			<!-- <figure>
 				<img src="IMAGE_FILENAME" alt="" />
 				<figcaption>
