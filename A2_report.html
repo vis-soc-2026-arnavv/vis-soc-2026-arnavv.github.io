@@ -1,0 +1,207 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+	<title>Vis & Society Assignment 2</title>
+	<link rel="stylesheet" href="https://vis-society.github.io/assignments/report.css" />
+	<script src="https://cdn.jsdelivr.net/npm/vega@6.2.0"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vega-lite@6.4.2"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vega-embed@7.1.0"></script>
+</head>
+
+<body>
+	<header>
+		<h1>
+			<small>Assignment 2</small>
+			Exploratory Data Analysis
+		</h1>
+
+		<p>
+			<strong>Arnav Verma</strong> — <em>arnavv@mit.edu</em>
+		</p>
+	</header>
+	<main>
+		<section>
+			<h2>Subtheme: Zoning and housing supply</h2>
+
+			<h3>Overall Analysis Questions</h3>
+			Single-family zoning is a land-use rule that allows only one detached house per lot, meaning no duplexes,
+			apartment buildings, or other multi-unit housing can be built there. It is widely considered to be an
+			exclusionary practice which burdens low-income and minority communities, as mentioned in the background readings linked in the final report.
+			While these reports either focus on massachusetts as a whole or around specfic municipalities like Boston or Somerville, I am curious to see how single-family zoning is distributed across the state.
+			<ol>
+				<li>Which municipalities across Massachusetts have the most single-family zoning? </li>
+				<li>Who is being affected by these single-family zoning policies?</li>
+				<li>Are are municipalities who practice similar single-family zoning tactics end up with similar
+					results?
+				</li>
+			</ol>
+		</section>
+
+		<section>
+			<h2>Discoveries & Insights</h2>
+
+			<figure>
+				<img src="images/fig1.png" alt="" />
+				<figcaption>
+					The share of single-family zoning for each municipality. Around half the municipalities inside
+					Massachusetts, like Boston, seem to have implemented no single-family zoning while some cities like
+					Dover seem to only support single family housing. So what are the geographic characteristics of each
+					of these municipalities? One intuition might be that suburban and rural municipalities prioritize
+					single-family housing, lets see if that checks out.
+				</figcaption>
+			</figure>
+
+			<figure>
+				<img src="images/fig2.png" alt="" />
+				<figcaption>
+					Municipalities on a map of Massachusetts showing the share of single-family zoning in each
+					municipality. Darker blue represents 100% single-family zoning while light blue represents 0%.
+					Notice
+					that the each the east coast generally has lower single-family zoning than western Massachusetts.
+					It also seems that more rural municipalities like Dover and Bolton have more single-family zoning
+					but
+					conversly that Southborough, which is just beside Dover, has no single-family zoning.
+					Something therefore to wonder is: why do municipalities beside each other not have similar policies?
+					Are there population-level differences?
+				</figcaption>
+			</figure>
+
+			<figure>
+				<img src="images/fig3.png" alt="" />
+				<figcaption>
+					Municipality population sampled by MAPC Zoning Atlas in 2010. Darker shades of blue represent single
+					higher single-family zoning. There doesn't seem to be any patterns between population and single
+					family housing, however, note the scale and inaccuracy of the population for each municipality.
+					Although Boston is a much larger city than Salem (with a real-world population of over 600,000
+					compared to Salem's ~41,000 in 2010), Boston has only 1,369 people listed in this dataset, all of
+					whom live in "other housing zoning" (non-single-family). This represents only a tiny fraction of
+					Boston's actual population, suggesting that the vast majority of Boston's residential land was not
+					included in the specific "housing zones" processed for this dataset.
+					<br />
+					Common explanations might be that the population is scaled incorrectly; however after double
+					checking the metadata and applying various linear transforms to the data, there still seemed to be
+					inconsistencies. Another explanation might be that Salem is just an outlier, however this also does
+					not seem to be the case as there are many population inconsistencies across most of the cities (as
+					checked via google search). Both these can be explained by observing the municipality ranking shown
+					in the x-axis, which is ordered by highest to lowest population.
+					<br />
+					Also note that three cities (Chelsea, Somerville, Everett) also have no recorded population meaning
+					that certain kinds of demographic data in this dataset is unavailable from these areas (age, gender,
+					race/ethnicity).
+					<br />
+					Since the population is off by such a large margin, I also wonder if there is agreement between
+					other population size signals used in this dataset.
+				</figcaption>
+			</figure>
+
+			<figure>
+				<img src="images/fig4.png" alt="" />
+				<figcaption>
+					Signals of population count provided in the dataset. The first two figures compare population count
+					measured from 2010 census data (pop column) to the the sum between family households (fhh column)
+					and non-family households (nfhh column), sampled in 2010, which quantify the number of families in
+					each household (first figure) and total number of households (hh column) sampled from 2014 to 2018
+					to find various household income levels (second figure). The third figure plots the two household
+					counts against each other. Each dot represents a municipality.
+					<br />
+					Notice that neither of these other signals really correlate with each other (i.e. they were off from
+					the y=x line), meaning that the number of households sampled in 2010 and 2014-18 if the even if a
+					municipality had a larger population sample than another, it didn’t necessarily mean that it had
+					proportionally more households. The last plot shows that the number of households measured across
+					different years was quite different. This could be due to how sampling was performed or it could be
+					due to the number of households increasing over the year as it is difficult to make sure there is
+					consistency in sampling in this dataset.
+					<br />
+					Note 1: in terms of data processing, it mentions in the metadata that "there are two rows
+					for some municipalities in this dataset which indicates only single-family zoning and other housing
+					zoning" meaning both rows for the same municipality have the same population count but different
+					counts for number of households (these are summed in the visualization above).
+					<br />
+					Note 2: A quality check was performed to make sure that different columns sum to the population or
+					household counts above.
+				</figcaption>
+			</figure>
+			<figure>
+				<div style="display: flex; justify-content: center; align-items: center;">
+					<img src="images/metro_boston_gender_map.png" alt="" style="width: 33.33%; height: auto;" />
+					<img src="images/metro_boston_age_map.png" alt="" style="width: 33.33%; height: auto;" />
+					<img src="images/metro_boston_race_ethnicity_map.png" alt="" style="width: 33.33%; height: auto;" />
+				</div>
+				<figcaption>
+					Municipalities on a map of Massachusetts showing the share of single-family zoning in each
+					municipality, overlaid with pie charts showing the proportion of gender (only measuring male or
+					female), age (under 18, 18-64, over 64), and race/ethnicities. Darker blue represents 100%
+					single-family zoning while light blue represents 0%. Municipalities color white have no recorded
+					statistics.
+					<br />
+					We can note the overall characteristics of municipalities across Massachusetts. The majority are
+					between 18-64 and white, and approximately split between male and female. We can notice that in the
+					east coast the population is a bit older (more folks over 65) where single family zoning tends to be
+					lower. It is also notable that Massachusetts also has a large Asian and Black minority mostly
+					located in areas in low single-family zoned areas.
+					<br />
+					An interesting question to wonder is: what if you group municipalities close to each and with
+					similar demographic distribution into a single municipality. Also, this map doesn’t capture the
+					nuance between single-zoned housing areas vs housing areas zoned differently and instead aggregate
+					these statistics across all zones. I would be curious to see how demographics shift across different
+					zoning areas.
+					<br />
+					Note that even though the absolute population sample size was off, one of the main assumptions going
+					forward in this analysis is that the collected sample roughly represents the distribution of
+					different demographic characteristics for each municipality. However, I do acknowledge that this may
+					not be the case. While there were time constraints for this assignment, a more thorough analysis
+					would likely perform statistical tests which would evaluate error or bias in the sample (possibly
+					via statistical contrasts or visualization of bootstrapped confidence intervals).
+
+
+				</figcaption>
+			</figure>
+
+			<figure>
+				<img src="images/single_family_diff2.png" alt="" />
+				<figcaption>
+					ENTER IMAGE CAPTION HERE.
+				</figcaption>
+			</figure>
+
+			<figure>
+				<img src="images/household_size.png" alt="" />
+				<figcaption>
+					ENTER IMAGE CAPTION HERE.
+				</figcaption>
+			</figure>
+
+			<figure>
+				<img src="images/household_income.png" alt="" />
+				<figcaption>
+					ENTER IMAGE CAPTION HERE.
+				</figcaption>
+			</figure>2
+
+			<!-- <figure>
+				<img src="IMAGE_FILENAME" alt="" />
+				<figcaption>
+					ENTER IMAGE CAPTION HERE.
+				</figcaption>
+			</figure>
+
+			<figure>
+				<img src="IMAGE_FILENAME" alt="" />
+				<figcaption>
+					ENTER IMAGE CAPTION HERE.
+				</figcaption>
+			</figure> -->
+
+
+		</section>
+
+		<section>
+			<h2>Summary</h2>
+
+			<p>WRITE FINAL SUMMARY HERE.</p>
+		</section>
+	</main>
+</body>
+
+</html>
