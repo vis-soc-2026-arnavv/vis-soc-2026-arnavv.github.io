@@ -1,0 +1,273 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+	<title>Vis & Society Assignment 3</title>
+	<link rel="stylesheet" href="https://vis-society.github.io/assignments/report.css" />
+	<style>
+		#chart {
+			width: 100%;
+			max-width: 720px;
+			height: 400px;
+			margin: 0 auto;
+		}
+	</style>
+</head>
+
+<body>
+	<header>
+		<h1>
+			<small>Assignment 3</small>
+			Visualization Critique & Redesign
+		</h1>
+
+		<p>
+			<strong>Arnav Verma</strong> — <em>arnavv@mit.edu</em>
+		</p>
+	</header>
+
+	<main>
+		<section>
+			<h2>Reading & Critique</h2>
+
+			<figure>
+				<img src="https://vis-society.github.io/assets/imgs/covid-spiral.png" alt="" />
+			</figure>
+
+			<p>
+				Insights about the data/visualization:
+			</p>
+
+			<ul>
+				<li>I notice that the band has the smallest width in the hot summer months, meaning there might be lower
+					COVID cases during that season. This to me indicates that there might be something about summer
+					months which maybe reduced the spread of COVID. </li>
+				<li>I notice that during all COVID years (ignoring 2020 since there were no cases recorded), the red
+					band is the widest around December/January, meaning that COVID cases peak around the winter holiday
+					season.
+				</li>
+				<li>I notice that the red band is the widest in the beginning of 2022, by a large margin. This might
+					mean that there are going to be a record number of cases in the 2022 winter season.
+				</li>
+			</ul>
+
+			<p>
+				Design Critique:
+			</p>
+
+			<p>
+				The visualization encodes the weeks of each year in polar coordinates, with the years 2020–2022
+				represented as a spiral timeline. The spiral line shows the progression of each year, and the area
+				inside the red band sitting on the line represents the number of new COVID cases, averaged across each
+				week. This encoding makes seasonal patterns easy to see, and the trend between 2020 to 2022 appears
+				salient. The radial layout also makes it relatively clear where to begin reading; however it is unclear
+				why the spiral starts at an arbitrary location — it could begin at center to better draw attention and
+				adhere to conventions for spirals. The spiral expanding outwards also helps showcase a sense of the
+				impending future. However, visualizing this data as a spiral in polar coordinates can also be confusing
+				in many ways. While it highlights broad seasonal patterns, it makes comparisons of COVID cases across
+				different months (e.g. March and July) or entire years (2021 vs 2020) more difficult because differences
+				in area are harder to perceptually differentiate when they are not right above one another. A standard
+				line chart or small multiples by year might make month-to-month comparisons clearer while still
+				preserving seasonal patterns. In addition, when reading yearly trends the layout can be slightly
+				misleading: because 2020 is inside the 2021 spiral, the 2021 line is longer, which may cause the viewer
+				to think the designer is exaggerating the timeline and the number of cases in 2021 (due to area on the
+				outside being larger than the inside for the same numerical values).
+				<br />
+				Area bands around a line are associated with the convention of showing uncertainty of some value so
+				using these bands to encode the 7-day average also threw me off a little bit. I would try to pick a
+				different mark which does not look similar to an uncertainty band and could be useful (maybe a line
+				centered around 0). On this subject, showing uncertainty or variation in the data is not necessary but
+				if the average value was not encoded in another mark besides area, it could be useful to show the
+				variation within each week across all 7 days. The spiral line also does not appear to encode additional
+				information besides acting as a timeline and therefore seems somewhat redundant (as the timeline already
+				implicitly communicated with the spiral of the area mark.
+				<br />
+				I take the target audience to be the average U.S. citizen reading the article, and I think the
+				visualization generally communicates broad trends in COVID cases and emphasizes seasonal effects by
+				“stacking” or rather spiraling years on top of months. Here, I think adding seasonal markers directly
+				along the spiral would make temporal orientation clearer and reduce the cognitive effort required to
+				interpret the timeline and allow people to better compare seasonal trends. Overall, while the
+				unconventional data encoding to the spiral and the polar coordinates of the chart draw attention, they
+				may add confusion to the interpretation. The takeaway was also a bit unclear since I’m not sure exactly
+				how I should think about increases in covid cases — is it due to seasonal factors only or is there
+				something more? Why should we expect even greater and greater increases seasons over season? While most
+				elements are reasonably labeled, I think legend is poorly designed since it doesn't showcase what the
+				maximum value of new COVID-19 cases would look like and the wording inside makes it seem like daily
+				COVID-19 cases are being shown rather than the 7-week average. I also wished the annotation would point
+				to specific events to provide meaningful interpretation of why such trends might be occurring.
+
+			</p>
+		</section>
+
+		<section>
+			<h2>Visualization Sketches</h2>
+
+			<figure>
+				<img src="covid_cases/fig1.jpg" alt="" />
+				<figcaption>
+					A faceted line chart showing the average number of new confirmed cases per week for each year from
+					2020 to the start of 2022. Each facet represents a different year, with the final facet showing
+					early 2022 and a trend of increasing cases.
+				</figcaption>
+			</figure>
+
+			<p>
+				Design Rationale for Sketch 1:
+			</p>
+
+			<ul>
+				<li>
+					I wanted to try to keep monthly/seasonal comparisons accessible for new cases while also allowing
+					the viewer to visually perceive yearly trends across each year. This would also allow a comparison
+					of year trends. I also wanted to use a more common convention so it would make parsing the chart a
+					bit easier.
+				</li>
+				<li>
+					By encoding the number of new cases in a line, I hoped this chart would encourage people to consider
+					the area beneath the line and compare it across seasons. I wanted people to take away that while the
+					area during the summer months is low and only marginally different, the winter months are where the
+					trends really matter, showing clear year-over-year differences. To highlight this message, I also
+					added an annotation emphasizing the differences at the end of the year.
+				</li>
+				<li>
+					I think this chart did a great job roughly showing yearly trends and showing broad differences in
+					seasonal trends. However, I think the exact week-over-week difference between years is not prominent
+					and so it's hard to compare when looking back and forth between two different charts. In the next
+					chart, I want to remove the facets and combined information in one chart to highlight larger
+					differences year-over-year relative to the minor differences.
+				</li>
+
+			</ul>
+
+			<figure>
+				<img src="covid_cases/fig2.jpg" alt="" />
+				<figcaption>
+					A layered line chart in which each line shows the average number of new confirmed cases per week for
+					each year. The shaded areas highlight year-over-year differences (solid indicates fewer cases than
+					the previous year, while shaded regions indicate more cases than the previous year), with the
+					largest differences occurring in winter.
+				</figcaption>
+			</figure>
+
+			<p>
+				Design Rationale for Sketch 2:
+			</p>
+
+			<ul>
+				<li>
+					This time, I wanted to make the differences between years more prominent and to highlight the large
+					differences between the winter seasons of 2021 and 2022 more explicitly. I also wanted to make
+					comparisons between years easier and more precise.
+				</li>
+				<li>
+					By creating layered charts and shading regions where cases were higher than in the previous year, I
+					hoped to address the aforementioned issues and make comparisons of weekly differences between years
+					easier.
+				</li>
+				<li>
+					Here, I think that following the lines between different years may have been somewhat confusing, so
+					adding color to the lines may be useful. While I felt the emphasis on differences was clear, simply
+					showing the large gaps in cases through the colored areas between lines was too conventional and did
+					not effectively convey how significant the differences were, and the impact of each case. In the
+					next sketch, I want to emphasize the importance of every new case across all weeks.
+				</li>
+
+			</ul>
+
+			<figure>
+				<img src="covid_cases/fig3.jpg" alt="" />
+				<figcaption>
+					A bubble chart showing the average number of cases faceted by year, with each week being represented
+					by a circle. The size of each bubble emphasizes the number of cases, with the largest bubble showing
+					over 100,000 cases in January 2022.
+				</figcaption>
+			</figure>
+
+			<p>
+				Design Rationale for Sketch 3:
+			</p>
+
+			<ul>
+				<li>For this sketch, I wanted to clearly show the impact of each case through a slightly more
+					unconventional visualization to evoke emotion. While I think showing trends across the months and
+					precise differences between weeks is important, I also wanted to emphasize the gravity of having
+					significantly more cases.</li>
+
+				<li>By drawing a bubble for each week and encoding its size as the number of cases, I hoped to
+					communicate that 2022 not only had higher COVID-19 case counts during the winter compared to other
+					years, but also that they were much higher than in previous months. I also hoped that the quantity
+					of circles (one circle per week) and their sizes would evoke a stronger sense of impact while still
+					somewhat following conventions. While I wanted to make things very unconventional like the original
+					chart which had some emotional impact — I was reminded that the original chart may be considered too
+					unconventional in a way that hinders engagement.</li>
+
+				<li>While I think the size and quantity of the circles convey more emotion, I still think faceting by
+					year makes comparisons between months more difficult to follow. Although the annotations help draw
+					attention to differences in circle sizes and seasons, a layered approach might be more effective for
+					comparing sizes, perhaps while encoding year using color and opacity. In the final design, I want to
+					explore encoding information with color and opacity, such that yearly trends can be overlaid while
+					also drawing emphasis on seasonal differences.</li>
+
+			</ul>
+		</section>
+
+		<section>
+			<h2>Final Visualization Design</h2>
+
+			<figure id="d3-viz">
+				<img src="covid_cases/final_chart.png" alt="" />
+			</figure>
+			<p>
+				Here, I was looking to emphasize not only the average number of new COVID-19 cases across different
+				years like the original visualization, and show seasonal and future trends, but also to show the death
+				toll relative to each new case. I did this to both emotionally ground the consequences of each new
+				COVID-19 case but also showcase the impact of preventive and medical measures year-over-year. I used the
+				circle mark to encode the 7-day average for new COVID-19 cases, representing one circle for each week
+				because it helps visually perceive linear trends over and between weeks and years. It also provides
+				slightly less clutter than drawing out a line. I used color to encode different years so a comparison
+				across seasons and years could be made, however one problem which this created was that it was hard to
+				see overlapping circles. To solve this, I lowered the opacity of all circles such that overlaps were
+				obvious. All colors were chosen to be different kinds of grey hues because I wanted to emphasize the
+				gravity and consequences of each case through darker colors associated with death and sickness. I
+				encoded the number of deaths as the size of the circles. I did this to showcase how height (number of
+				new cases) correlated with number deaths, across each year and to really drive home the emotional impact
+				of each case. Specifically to show how health and hospital infrastructure and accessibility was lagging
+				behind in 2021 as compared to 2022, which might have led to more deaths per case. I also highlight the
+				background different shades of red, showcasing different seasons, with the opacity being relative to the
+				average number of deaths in that season. This made sure to emphasize the trend of the drastic cases and
+				deaths in the winter time. While information in this visualization showcases death as a consequence of
+				getting diagnosed with COVID-19, it perhaps frames this as the only significant consequence. There are
+				many other tragic outcomes which are not covered, like the number of hospitalizations, permanent health
+				issues, financial damage, which might drive a significant burden on individuals and families which are
+				not shown inside this visualization.
+				<br />
+				On a side note: while aggregating the data for the number of new cases in 2022, I noticed that there
+				were a few outliers. There was no data between week 38 to 51 but there was data for week 52. I also
+				found a day with negative values. Due to these reasons, during the data processing stage, I omitted
+				those weeks from my visualization.
+				<br />
+				I think that the final design addresses most of the critiques I surfaced in Step 2. I was able to remove
+				the confusing area bands with circle marks that more clearly represent the 7-day average and reduce
+				visual clutter. Removing the spiral and polar coordinates also simplifies the timeline and makes the
+				chart easier to interpret, while encoding deaths as circle size adds meaningful context about the
+				severity of COVID cases across years, which was missing. I also tried annotations to emphasize certain
+				trends and points of importance. The design process helped me try out a different set of marks and
+				strategies to emphasize seasonal and yearly differences. I think I was able to incorporate the lessons
+				from all of the prior designs, specifically about showcasing linear trends from designs 1 and 2,
+				showcasing differences by shading (does with opacity in the final sketch) from design 2, and showcasing
+				impact and consequences via circle mark and size from design 3. Something I was not able to incorporate
+				was communicating the notion of variation in the data as it would add to the visual clutter and the
+				circle marks do not have come with strong conventions for showcasing variation or uncertainty. Overall,
+				this process made me realize that not all marks and channels come with the same baggage. While I was
+				able to encode size within the circle mark and make my visualization “easy” to read due to convention,
+				it would not have been true if I chose another shape like line.
+
+			</p>
+		</section>
+	</main>
+
+	<script src="https://d3js.org/d3.v7.min.js"></script>
+	<script src="d3_chart.js"></script>
+</body>
+
+</html>
